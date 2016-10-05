@@ -8,22 +8,23 @@
 		value="false" />
 	<constant name="struts.devMode" value="false" />
 
-	<package name="default" extends="struts-default" namespace="/">
-
-		<!-- <action name="add"
-			class="net.viralpatel.contact.view.ContactAction" method="add">
-			<result name="success" type="chain">index</result>
-			<result name="input" type="chain">index</result>
+	<package name="default" extends="hibernate-default">
+	
+		<action name="saveOrUpdateUser" method="saveOrUpdate" class="com.user.action.userAction">
+			<result name="success" type="redirect">listUser</result>
 		</action>
-
-		<action name="delete"
-			class="net.viralpatel.contact.view.ContactAction" method="delete">
-			<result name="success" type="chain">index</result>
+		
+		<action name="listUser" method="list" class="com.user.action.userAction">
+			<result name="success">/register.jsp</result>
 		</action>
-
-		<action name="index"
-			class="net.viralpatel.contact.view.ContactAction">
-			<result name="success">index.jsp</result>
-		</action> -->
+		
+		<action name="editUser" method="edit" class="com.user.action.userAction">
+			<result name="success">/register.jsp</result>
+		</action>
+		
+		<action name="deleteUser" method="delete" class="com.user.action.userAction">
+			<result name="success" type="redirect">listUser</result>
+		</action>
+		
 	</package>
 </struts>
